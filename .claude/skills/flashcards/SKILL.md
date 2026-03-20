@@ -1,7 +1,7 @@
 ---
 name: flashcards
 description: Generate Anki flashcard CSVs from tutorial sheets, example classes, or lecture chapters
-argument-hint: <module/assessment e.g. mt2506/tut2>
+argument-hint: <module/assessment e.g. math101/tut2>
 user-invocable: true
 ---
 
@@ -9,14 +9,14 @@ user-invocable: true
 
 Generate exhaustive Anki flashcard CSVs for the specified assessment or chapter.
 
-**Input:** `$ARGUMENTS` — module and assessment (e.g. `mt2506/tut2`, `mt2501/ec1`, `mt2508/ch3`)
+**Input:** `$ARGUMENTS` — module and assessment (e.g. `math101/tut2`, `econ201/ec1`, `phys301/ch3`)
 
 ## Step 1: Locate Sources
 
 Parse `$ARGUMENTS` to identify module and assessment:
-- `mt2506/tut2` → module `mt2506`, tutorial 2
-- `mt2501/ec1` → module `mt2501`, example class 1
-- `mt2508/ch3` → module `mt2508`, lecture chapter 3
+- `math101/tut2` → module `math101`, tutorial 2
+- `econ201/ec1` → module `econ201`, example class 1
+- `phys301/ch3` → module `phys301`, lecture chapter 3
 
 Read the assessment file and identify which lecture-note chapters are relevant. Only read those chapters — avoid loading all chapters to prevent context overflow.
 
@@ -63,7 +63,7 @@ Text, Source, Example, Tags
 ### Tag Format
 `course::assessmentN::type::subtopic`
 - `type` = `method` (reusable technique) or `exercise` (specific worked problem)
-- Examples: `mt2506::tut1::method::velocity`, `mt2508::ec1::exercise::consistency`
+- Examples: `math101::tut1::method::velocity`, `econ201::ec1::exercise::consistency`
 
 ## Step 4: Write Output
 
